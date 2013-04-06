@@ -12,5 +12,6 @@ Simple rich text box without any options
 
 Rich text box with option to remove font-styles dropdown
 ```html
-<textarea id="sometext" data-bind="wysihtml5: {data: $data.ExampleText, options: {'font-styles': false}}" placeholder="Enter text ..."></textarea>
+<textarea id="sometext" data-bind="wysihtml5: {data: $data.ExampleText, options: {'font-styles': false}}" 
+placeholder="Enter text ..."></textarea>
 ```
