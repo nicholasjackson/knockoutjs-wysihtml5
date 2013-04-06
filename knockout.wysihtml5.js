@@ -1,30 +1,30 @@
-//knockout.wysihtml5 0.1 | (c) 2013 Nic Jackson | http://www.opensource.org/licenses/mit-license
+//knockout.wysihtml5 0.2 | (c) 2013 Nic Jackson | http://www.opensource.org/licenses/mit-license
 (function(factory) {
     if (typeof define === "function" && define.amd) {
         // AMD anonymous module
-        define(["knockout", "jquery","wysihtml5"], factory);
+        define(['knockout', 'jquery','bootstrap-wysihtml5'], factory);
     } else {
         // No module loader (plain <script> tag) - put directly in global namespace
-        factory(window.ko, jQuery);
+        factory(window.ko);
     }
-})(function(ko, $) {
+})(function(ko) {
 
 ko.bindingHandlers.wysihtml5 = {
     init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
 
-    	var options = {};
-    	var value = ko.utils.unwrapObservable(valueAccessor()) || {};
+        var options = {};
+        var value = ko.utils.unwrapObservable(valueAccessor()) || {};
 
-    	options.events = {
+        options.events = {
                 "change" : function() {
                     var observable;
                     var content = ko.utils.unwrapObservable(valueAccessor()) || {};
 
-        			if (content.data != undefined) {
-        				observable = valueAccessor().data;
-        			} else {
-        				observable = valueAccessor();
-        			}
+                    if (content.data != undefined) {
+                        observable = valueAccessor().data;
+                    } else {
+                        observable = valueAccessor();
+                    }
 
                     observable(control.getValue());
                 }
@@ -45,7 +45,7 @@ ko.bindingHandlers.wysihtml5 = {
         if (content.data != undefined) {
             control.setValue(valueAccessor().data());
         } else {
-        	control.setValue(valueAccessor()());
+            control.setValue(valueAccessor()());
         }
     }
 };
