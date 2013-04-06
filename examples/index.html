@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<title>Knockout WysiHTML5 Binding</title>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css"></link>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"></link>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/wysihtml5.js"></script>
+		<script src="js/bootstrap-wysihtml5.js"></script>
+		<script src="js/knockout.js"></script>
+		<script src="../knockout.wysihtml5.js"></script>
+	    <style>
+  			body {
+    			padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  			}
+		</style>
+
+	</head>
+<body class="wysihtml5-supported">
+
+	<div class="container">
+		<h1>WysiHTML5 - Knockout binding example</h1>
+		<h3>Type something into the textbox and then press tab to change the focus</h3>
+		<br/>
+		<h4>Text:</h4><div data-bind="text:ExampleText"></div><br/>
+
+		<div class="well">
+			<textarea id="sometext" class="span10" rows="4" data-bind="wysihtml5: $data.ExampleText" placeholder="Enter text ..."></textarea>
+		</div>
+
+		<div class="well">
+			<textarea id="sometext2" class="span10" rows="4" data-bind="wysihtml5: {data: $data.ExampleText, options: {'font-styles': false}}" placeholder="Enter text ..."></textarea>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+
+		//$(document).ready(function() {
+			var model = {
+				ExampleText:ko.observable('Some Text')
+			}
+
+			ko.applyBindings(model);
+
+		//});
+			
+	</script>
+
+</body>
+</html>
