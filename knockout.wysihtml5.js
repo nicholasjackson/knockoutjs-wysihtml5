@@ -1,4 +1,4 @@
-//knockout.wysihtml5 0.2 | (c) 2013 Nic Jackson | http://www.opensource.org/licenses/mit-license
+//knockout.wysihtml5 0.2.1 | (c) 2013 Nic Jackson | http://www.opensource.org/licenses/mit-license
 (function(factory) {
     if (typeof define === "function" && define.amd) {
         // AMD anonymous module
@@ -34,6 +34,10 @@ ko.bindingHandlers.wysihtml5 = {
             ko.utils.extend(options, value.options);
             delete value.options;
         }
+
+        // if the textarea has no id, generate one to keep wysihtml5 happy
+        if($(element).attr('id') == undefined || $(element).attr('id') == '')
+            $(element).attr('id','id_' + Math.floor(new Date().valueOf()));
 
         var control = $(element).wysihtml5(options).data("wysihtml5").editor;
     },
