@@ -1,4 +1,4 @@
-//knockout-sortable 0.7.3 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout.wysihtml5 0.1 | (c) 2013 Nic Jackson | http://www.opensource.org/licenses/mit-license
 (function(factory) {
     if (typeof define === "function" && define.amd) {
         // AMD anonymous module
